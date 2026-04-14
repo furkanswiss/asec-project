@@ -1,0 +1,244 @@
+/* Duyurular Sayfası CSS - ASEC Kulübü */
+
+/* Ana Renkler
+- Ana Renk (Lacivert): #1B1F3B
+- Gece Mavisi: #2C3E50
+- Mor: #6A0DAD
+- Koyu Mor: #4B0082
+- Menekşe: #9370DB
+- Sistem Moru: #B39DDB
+- Açık Mor: #E6E6FA
+*/
+
+/* Ana Container */
+.announcements-container {
+  max-width: 1200px;
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+}
+
+/* Sayfa Başlığı */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1c2444; /* Lacivert */
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.page-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background-color: #9370db;
+  border-radius: 2px;
+}
+
+/* Duyurular Grid */
+.announcements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Duyuru Kartı */
+.announcement-card {
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  padding: 1.8rem;
+  border: 1px solid #9370db; /* Varsayılan kenar rengi */
+}
+
+.announcement-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Önemli Duyurular */
+.announcement-card.important {
+  border-color: #ff5252; /* Kırmızı */
+}
+
+.announcement-card.important .badge {
+  background: linear-gradient(135deg, #ff5252, #ff8a80);
+}
+
+/* Workshop Duyuruları */
+.announcement-card.workshop {
+  border-top-color: #2196f3; /* Mavi */
+}
+
+.announcement-card.workshop .badge {
+  background: linear-gradient(135deg, #2196f3, #64b5f6);
+}
+
+/* Etkinlik Duyuruları */
+.announcement-card.event {
+  border-top-color: #4caf50; /* Yeşil */
+}
+
+.announcement-card.event .badge {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+}
+
+/* Duyuru Başlığı */
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+/* Kategori Etiketi */
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, #6a0dad, #9370db);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(106, 13, 173, 0.25);
+}
+
+/* Tarih */
+.date {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 0.2rem 0.6rem;
+}
+
+/* Duyuru İçeriği */
+.announcement-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1b1f3b;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.announcement-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Devamını Oku Butonu */
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  background-color: #1b1f3b;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  margin-top: auto;
+  box-shadow: 0 4px 10px rgba(27, 31, 59, 0.2);
+}
+
+.read-more i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #9370db;
+  box-shadow: 0 6px 15px rgba(106, 13, 173, 0.3);
+}
+
+.read-more:hover i {
+  transform: translateX(5px);
+}
+
+/* Duyuru Yok Durumu */
+.no-announcements {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.no-announcements i {
+  font-size: 4rem;
+  color: #9370db;
+  margin-bottom: 1.5rem;
+}
+
+.no-announcements h3 {
+  font-size: 1.8rem;
+  color: #1b1f3b;
+  margin-bottom: 1rem;
+}
+
+.no-announcements p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 992px) {
+  .announcements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .announcements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .announcement-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .announcement-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .announcements-container {
+    margin: 2rem auto 4rem;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .announcement-card {
+    padding: 1.5rem;
+  }
+}

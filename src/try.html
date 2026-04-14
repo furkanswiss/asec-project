@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{AS/EC} Intro - Centered Typing + Glitch</title>
+    <style>
+      :root {
+        --gap: 6ch;
+        --dur-in: 1s;
+        --dur-apart: 0.9s;
+        --dur-type: 1.6s;
+        --easing: cubic-bezier(0.22, 0.8, 0.22, 1);
+      }
+
+      /* sayfa */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        background: radial-gradient(
+          circle at 50% 30%,
+          #15121e 0%,
+          #0b0b0f 60%,
+          #06060a 100%
+        );
+        color: #fff;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
+          "Liberation Mono", monospace;
+        overflow: hidden;
+      }
+
+      .intro {
+        position: relative;
+        font-size: clamp(48px, 9vw, 140px); /* büyük gösterim */
+        font-weight: 900;
+        line-height: 1;
+        width: min(90vw, 1200px);
+      }
+
+      /* parantezler */
+      .brace {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        color: #d6c6ff;
+        text-shadow: 0 0 12px rgba(160, 130, 255, 0.25);
+        font-weight: 900;
+        font-size: 1em; /* 1em = intro font-size */
+        pointer-events: none;
+        will-change: transform, opacity;
+      }
+      .brace.left-curly {
+        --x: 50vw;
+        transform: translate(calc(-50% + var(--x)), -50%);
+      }
+      .brace.right-curly {
+        --x: -50vw;
+        transform: translate(calc(-50% + var(--x)), -50%);
+      }
+
+      .in .brace {
+        transition: transform var(--dur-in) var(--easing),
+          opacity var(--dur-in) var(--easing);
+        opacity: 1;
+      }
+      .in .brace.left-curly {
+        --x: -0.7ch;
+      }
+      .in .brace.right-curly {
+        --x: 0.7ch;
+      }
+
+      .apart .brace {
+        transition: transform var(--dur-apart) var(--easing);
+      }
+      .apart .brace.left-curly {
+        --x: calc(-0.7ch - var(--gap) / 2);
+      }
+      .apart .brace.right-curly {
+        --x: calc(0.7ch + var(--gap) / 2);
+      }
+
+      /* merkez container - burası sabit genişlikte, parantezlerle uyumlu */
+      .center {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: calc(4ch + var(--gap)); /* typing için yeterli alan */
+        height: 1em; /* satır yüksekliği */
+        margin: 0 auto;
+        pointer-events: none;
+      }
+
+      /* TYPING - now centered by absolute positioning */
+      .typing {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-block;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0ch; /* animation büyütür */
+        opacity: 0;
+        border-right: 0.08em solid transparent;
+        text-align: center;
+        font-size: 1em; /* 1em eşittir intro font-size */
+        will-change: width, opacity;
+      }
+      .typing.go {
+        opacity: 1;
+        animation: typing var(--dur-type) steps(4, end) forwards,
+          caret 600ms steps(1, end) infinite;
+        border-right-color: rgba(255, 255, 255, 0.6);
+      }
+      @keyframes typing {
+        from {
+          width: 0ch;
+        }
+        to {
+          width: 4ch;
+        }
+      } /* A S E C => 4ch */
+      @keyframes caret {
+        50% {
+          border-right-color: transparent;
+        }
+      }
+
+      /* GLITCH + GLOW final - aynı merkezde konumlu */
+      .animated-asec {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.3ch;
+        opacity: 0;
+        transition: opacity 0.8s ease, transform 0.6s ease;
+        animation: float 6s ease-in-out infinite;
+        font-size: 1em;
+        pointer-events: none;
+      }
+      .animated-asec.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0) rotateY(0deg);
+        }
+        50% {
+          transform: translateX(-50%) translateY(-10px) rotateY(8deg);
+        }
+      }
+
+      .letter {
+        position: relative;
+        font-weight: 800;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(106, 13, 173, 0.9),
+          0 0 30px rgba(147, 112, 219, 0.5);
+        animation: glow 3s infinite alternate;
+      }
+      .letter::before {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #9370db;
+        filter: blur(8px);
+        opacity: 0;
+        animation: glitch-effect 4s infinite alternate;
+      }
+      .letter::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #b39ddb;
+        filter: blur(4px);
+        opacity: 0;
+        animation: glitch-effect 3s 0.5s infinite alternate;
+      }
+
+      @keyframes glow {
+        0% {
+          text-shadow: 0 0 10px rgba(106, 13, 173, 0.8),
+            0 0 20px rgba(106, 13, 173, 0.4);
+        }
+        100% {
+          text-shadow: 0 0 20px rgba(106, 13, 173, 1),
+            0 0 40px rgba(106, 13, 173, 0.6), 0 0 60px rgba(106, 13, 173, 0.4);
+        }
+      }
+      @keyframes glitch-effect {
+        0%,
+        5%,
+        100% {
+          opacity: 0;
+          transform: translateX(0);
+        }
+        1% {
+          opacity: 0.8;
+          transform: translateX(3px);
+        }
+        2% {
+          opacity: 0.4;
+          transform: translateX(-3px);
+        }
+        3% {
+          opacity: 0.6;
+          transform: translateX(0);
+        }
+      }
+
+      /* responsive: büyük font azalt */
+      @media (max-width: 480px) {
+        .intro {
+          font-size: clamp(36px, 18vw, 72px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="intro" id="intro">
+      <span class="brace left-curly">{</span>
+      <span class="brace right-curly">}</span>
+
+      <div class="center">
+        <!-- typing (merkezde büyüyerek görünür) -->
+        <span class="typing" id="typing">ASEC</span>
+
+        <!-- glitch+glow final (aynı merkezde, typing bittiğinde görünür) -->
+        <div class="animated-asec" id="animated-asec" aria-hidden="true">
+          <span class="letter" data-text="A">A</span>
+          <span class="letter" data-text="S">S</span>
+          <span class="letter" data-text="E">E</span>
+          <span class="letter" data-text="C">C</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const intro = document.getElementById("intro");
+      const typing = document.getElementById("typing");
+      const animated = document.getElementById("animated-asec");
+
+      // 1) parantezler içeri girer
+      setTimeout(() => intro.classList.add("in"), 200);
+
+      // 2) açılır + typing başlar
+      setTimeout(() => {
+        intro.classList.add("apart");
+        typing.classList.add("go");
+      }, 1200);
+
+      // 3) typing bittikten sonra smooth geçiş
+      typing.addEventListener(
+        "animationend",
+        (e) => {
+          if (e.animationName === "typing") {
+            // fade/replace: typing kaybol, glitch görünür
+            typing.style.transition = "opacity 0.45s ease";
+            typing.style.opacity = 0;
+            setTimeout(() => {
+              typing.style.display = "none";
+              animated.classList.add("show");
+            }, 480);
+          }
+        },
+        { once: true }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+/* Etkinlik Detay Sayfası CSS - ASEC Kulübü (Tema Uyumlu) */
+
+/* Genel Stil */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f4f8; /* Hafif açık mor ton */
+  color: #1b1f3b;
+  line-height: 1.6;
+}
+
+/* Ana Container */
+.event-detail-container {
+  max-width: 1000px;
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+}
+
+/* Etkinlik Detay Kartı */
+.event-detail-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(27, 31, 59, 0.08);
+}
+
+/* Etkinlik Başlık Alanı */
+.event-header {
+  background: linear-gradient(150deg, #1b1f3b, #7556b2);
+  color: #fff;
+  padding: 2rem 2rem;
+  position: relative;
+}
+
+.event-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.event-status {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.event-status.upcoming {
+  background-color: rgba(147, 112, 219, 0.2);
+  color: #9370db;
+}
+
+.event-status.past {
+  background-color: rgba(162, 152, 183, 0.2);
+  color: rgba(228, 222, 234, 0.851);
+}
+
+/* Etkinlik İçerik Alanı */
+.event-content {
+  padding: 2.5rem;
+}
+
+/* Etkinlik Bilgileri */
+.event-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info-icon {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #9370db, #a298b7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-text {
+  flex-grow: 1;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1b1f3b;
+}
+
+/* Etkinlik Açıklaması */
+.event-description {
+  margin-bottom: 2.5rem;
+}
+
+.event-description h2 {
+  font-size: 1.5rem;
+  color: #1b1f3b;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.event-description h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #9370db, #a298b7);
+  border-radius: 2px;
+}
+
+.event-description p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #1b1f3b;
+  white-space: pre-line;
+}
+
+/* Kayıt Butonu */
+.register-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(45deg, #9370db, #a298b7);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(147, 112, 219, 0.3);
+  margin-bottom: 2.5rem;
+}
+
+.register-btn i {
+  margin-right: 0.8rem;
+}
+
+.register-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(147, 112, 219, 0.4);
+}
+
+/* Fotoğraf Galerisi */
+.gallery-section {
+  margin-top: 3rem;
+}
+
+.gallery-section h2 {
+  font-size: 1.5rem;
+  color: #1b1f3b;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.gallery-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #9370db, #a298b7);
+  border-radius: 2px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 180px;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.no-photos {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f0eff5;
+  border-radius: 8px;
+  color: #a298b7;
+  font-style: italic;
+}
+
+/* Geri Dönüş Butonu */
+.back-to-events {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #e0dfe5;
+  color: #1b1f3b;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.back-to-events i {
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.back-to-events:hover {
+  background-color: #ccc7e5;
+}
+
+.back-to-events:hover i {
+  transform: translateX(-3px);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .event-header {
+    padding: 2rem 1.5rem;
+  }
+  .event-header h1 {
+    font-size: 1.8rem;
+  }
+  .event-content {
+    padding: 1.5rem;
+  }
+  .event-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .event-header h1 {
+    font-size: 1.5rem;
+  }
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .gallery-item {
+    height: 150px;
+  }
+}

@@ -1,0 +1,71 @@
+/* Mobil Cihazlar için Animasyon Optimizasyonları */
+
+/* Mobil cihazlarda animasyonları basitleştir */
+@media (max-width: 768px) {
+    /* ASEC Animasyonu */
+    .animated-asec {
+        animation: none !important;
+    }
+    
+    .letter {
+        font-size: 4rem !important;
+        animation: none !important;
+        text-shadow: 0 0 10px rgba(106, 13, 173, 0.8) !important;
+    }
+    
+    .letter::before,
+    .letter::after {
+        display: none !important;
+    }
+    
+    /* Binary Spiral */
+    .binary-bit {
+        animation: none !important;
+    }
+    
+    /* Özellik Kartları */
+    .feature-card {
+        transition: none !important;
+    }
+    
+    .feature-card:hover {
+        transform: none !important;
+    }
+    
+    .feature-card i::before,
+    .feature-card i::after {
+        animation: none !important;
+    }
+    
+    /* Hero Bölümü */
+    .hero {
+        min-height: 80vh !important;
+    }
+    
+    /* Etkinlik Kartları */
+    .event-card {
+        transition: none !important;
+    }
+    
+    .event-card:hover {
+        transform: none !important;
+    }
+}
+
+/* Düşük performanslı cihazlar için ek optimizasyonlar */
+.low-performance-device .animated-asec,
+.low-performance-device .letter,
+.low-performance-device .binary-bit,
+.low-performance-device .feature-card,
+.low-performance-device .event-card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+.low-performance-device .letter::before,
+.low-performance-device .letter::after,
+.low-performance-device .feature-card i::before,
+.low-performance-device .feature-card i::after {
+    display: none !important;
+}

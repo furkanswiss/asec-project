@@ -1,0 +1,232 @@
+/* Blog Detay Sayfası CSS - ASEC Kulübü */
+
+/* Ana Renkler
+- Ana Renk (Lacivert): #1B1F3B
+- Gece Mavisi: #2C3E50
+- Mor: #6A0DAD
+- Koyu Mor: #4B0082
+- Menekşe: #9370DB
+- Sistem Moru: #B39DDB
+- Açık Mor: #E6E6FA
+*/
+
+/* Ana Container */
+.blog-detail {
+  max-width: 900px;
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Blog Başlık Alanı */
+.blog-detail-header {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.blog-detail-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Kategori Etiketi */
+.category {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: #9370db;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 10px rgba(106, 13, 173, 0.3);
+  z-index: 10;
+}
+
+/* Blog İçerik Alanı */
+.blog-detail-content {
+  padding: 2.5rem;
+}
+
+/* Blog Başlığı */
+.blog-detail-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1c2444;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+/* Blog Meta Bilgileri */
+.blog-detail-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.blog-detail-meta span {
+  display: flex;
+  align-items: center;
+}
+
+.blog-detail-meta i {
+  color: #9370db;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Blog Metin İçeriği */
+.blog-detail-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+.blog-detail-text p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-detail-text h2 {
+  font-size: 1.8rem;
+  color: #1b1f3b;
+  margin: 2.5rem 0 1.5rem;
+  font-weight: 700;
+}
+
+.blog-detail-text h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 2rem 0 1.2rem;
+  font-weight: 600;
+}
+
+.blog-detail-text ul,
+.blog-detail-text ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.blog-detail-text li {
+  margin-bottom: 0.8rem;
+}
+
+.blog-detail-text blockquote {
+  border-left: 4px solid #9370db;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background-color: #f9f9f9;
+  font-style: italic;
+  color: #555;
+}
+
+.blog-detail-text img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.blog-detail-text a {
+  color: #9370db;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.blog-detail-text a:hover {
+  color: #9370db;
+}
+
+/* Geri Dönüş Butonu */
+.back-to-blog {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 1.8rem;
+  background-color: #1b1f3b;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(27, 31, 59, 0.2);
+}
+
+.back-to-blog i {
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.back-to-blog:hover {
+  background-color: #9370db;
+  box-shadow: 0 6px 15px rgba(106, 13, 173, 0.3);
+}
+
+.back-to-blog:hover i {
+  transform: translateX(-5px);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 992px) {
+  .blog-detail-header {
+    height: 350px;
+  }
+
+  .blog-detail-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-detail {
+    margin: 2rem auto 4rem;
+  }
+
+  .blog-detail-header {
+    height: 300px;
+  }
+
+  .blog-detail-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .blog-detail-title {
+    font-size: 1.8rem;
+  }
+
+  .blog-detail-meta {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .blog-detail-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-detail-header {
+    height: 220px;
+  }
+
+  .category {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .blog-detail-title {
+    font-size: 1.6rem;
+  }
+}

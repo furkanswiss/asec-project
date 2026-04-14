@@ -1,0 +1,348 @@
+/* Genel yapı */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5fa;
+  color: #1b1f3b;
+  margin: 0;
+  padding: 0;
+}
+
+/* Başlık alanı - Havalı ve animasyonlu */
+.teams-header {
+  background: linear-gradient(135deg, #1b1f3b, #1b1f3b, #a298b7, #9370db);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.teams-header .header-bg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  animation: rotateBg 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotateBg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.teams-header h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+.teams-header p {
+  font-size: 1.3rem;
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 2s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+/* Metin animasyonu */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* İstatistik kutuları */
+.header-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  text-align: center;
+  animation: popUp 1s ease forwards;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background-color: #3582ce;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: bouncePop 2s ease infinite;
+}
+
+@keyframes bouncePop {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  30% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.stat-label {
+  display: block;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+/* Pop-up animasyon */
+@keyframes popUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.teams-grid {
+  padding: 4rem 2rem; /* header'dan aşağı boşluk */
+}
+
+.teams-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px; /* sayfa ortasında sınır */
+  margin: 0 auto; /* ortala */
+  padding: 2rem 1rem;
+}
+
+.departments-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 sütun sabit */
+  gap: 2rem; /* kartlar arası mesafe */
+  justify-items: center;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px #3582ce;
+  width: 100%;
+  max-width: 350px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  text-align: left; /* metni sola hizala */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(27, 31, 59, 0.25);
+}
+
+/* İçerik kısmı */
+.team-content {
+  padding-bottom: 1rem;
+}
+
+/* Yazı kısmı */
+.team-content h3 {
+  color: #1b1f3b;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.team-description {
+  font-size: 0.95rem;
+  color: #333;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Üye kartı - alt sabit */
+.team-members {
+  display: flex;
+  justify-content: flex-start; /* solda hizala */
+  margin-top: auto; /* kartın altına it */
+  border-top: 1px solid rgba(27, 31, 59, 0.1);
+  padding-top: 1rem;
+}
+
+.member-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.member-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #a298b7;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(27, 31, 59, 0.2);
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-info h4 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #1b1f3b;
+}
+
+.member-role {
+  font-size: 0.85rem;
+  color: #9370db;
+  font-weight: 500;
+  margin: 0.2rem 0;
+}
+
+.member-social a {
+  color: #1b1f3b;
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+  transition: color 0.2s ease;
+}
+
+.member-social a:hover {
+  color: #9370db;
+}
+
+/* Responsive grid ve kartlar */
+@media (max-width: 1024px) {
+  .departments-row {
+    grid-template-columns: repeat(2, 1fr); /* 2 sütun tabletlerde */
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .departments-row {
+    grid-template-columns: 1fr; /* 1 sütun mobil */
+    gap: 1rem;
+  }
+
+  .team-card {
+    padding: 1.5rem 1rem;
+    text-align: center; /* küçük ekranda ortala */
+  }
+
+  .team-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .team-description {
+    font-size: 0.9rem;
+  }
+
+  .team-members {
+    justify-content: center; /* üye kartlarını ortala */
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding-top: 0.8rem;
+  }
+
+  .member-card {
+    flex-direction: column; /* resim ve metin alt alta */
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .member-info h4 {
+    font-size: 1rem;
+  }
+
+  .member-role {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .teams-header h2 {
+    font-size: 2rem;
+  }
+
+  .teams-header p {
+    font-size: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}

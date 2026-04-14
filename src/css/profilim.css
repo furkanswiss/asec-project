@@ -1,0 +1,441 @@
+/* ASEC Kulübü - Profil Sayfası CSS */
+
+/* Renk Paleti:
+- Ana Renk (Lacivert): #1B1F3B
+- Gece Mavisi: #2C3E50
+- Mor: #6A0DAD
+- Koyu Mor: #4B0082
+- Menekşe: #9370DB
+- Sistem Moru: #B39DDB
+- Açık Mor: #E6E6FA
+*/
+
+/* Profil Ana Sayfa */
+.profile-main {
+  min-height: 80vh;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 31, 59, 0.03) 0%,
+    rgba(106, 13, 173, 0.05) 100%
+  );
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Profil Sayfası Ana Stiller */
+.profil-container {
+  max-width: 900px;
+  width: 95%;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(27, 31, 59, 0.15);
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+/* Profil Header */
+.profil-header {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  background: linear-gradient(150deg, #1b1f3b, #7556b2);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.profil-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.profil-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #9370db);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.profil-avatar i {
+  font-size: 42px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.profil-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profil-header-info {
+  flex: 1;
+}
+
+.profil-header-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profil-email {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.profil-email i {
+  margin-right: 8px;
+  color: #b39ddb;
+}
+
+/* Profil Bilgileri Listesi */
+.profil-info-list {
+  padding: 30px;
+  background: #fff;
+}
+
+.profil-info-item {
+  display: flex;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profil-info-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.profil-info-item:hover {
+  transform: translateX(5px);
+  border-bottom-color: rgba(106, 13, 173, 0.3);
+}
+
+.profil-label {
+  width: 200px;
+  font-weight: 600;
+  color: #1b1f3b;
+  padding-right: 20px;
+  position: relative;
+}
+
+.profil-label::after {
+  content: ":";
+  position: absolute;
+  right: 10px;
+  color: #9370db;
+}
+
+.profil-value {
+  flex: 1;
+  color: #2c3e50;
+}
+
+/* CV Yükleme Bölümü */
+.profil-cv-section {
+  padding: 25px 30px;
+  background: rgba(230, 230, 250, 0.3);
+  border-top: 1px solid rgba(106, 13, 173, 0.1);
+}
+
+.profil-cv-section label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #1c2444;
+}
+
+.profil-cv-section i {
+  margin-right: 8px;
+  color: #1c2444;
+}
+
+#cv-upload-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+#cv-upload-form input[type="file"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid rgba(106, 13, 173, 0.2);
+  border-radius: 6px;
+  background: #fff;
+}
+
+#cv-upload-form button {
+  padding: 10px 20px;
+  min-width: 120px;
+}
+
+/* Profil Düzenleme Modalı */
+.profil-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(27, 31, 59, 0.8);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.profil-modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideDown 0.4s ease;
+}
+
+.profil-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.profil-modal-close:hover {
+  color: #9370db;
+  transform: rotate(90deg);
+}
+
+.profil-modal-content h3 {
+  font-size: 1.5rem;
+  color: #1b1f3b;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+  text-align: center;
+}
+
+/* Form Stili */
+.profil-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.profil-form-group {
+  flex: 1;
+  min-width: 250px;
+}
+
+.profil-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.profil-form-group input,
+.profil-form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(106, 13, 173, 0.2);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1b1f3b;
+  transition: all 0.3s ease;
+}
+
+.profil-form-group input:focus,
+.profil-form-group textarea:focus {
+  border-color: #9370db;
+  box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+  outline: none;
+}
+
+.profil-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Butonlar */
+.cta-button {
+  background: linear-gradient(45deg, #9370db);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(106, 13, 173, 0.3);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Uyarı Mesajları */
+.alert-success,
+.alert-error {
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left: 4px solid #4caf50;
+  color: #388e3c;
+}
+
+.alert-error {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-left: 4px solid #ff0000;
+  color: #d32f2f;
+}
+
+.form-group {
+  margin-top: 15px;
+}
+
+.form-group a {
+  color: #9370db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.form-group a:hover {
+  color: #9370db;
+  text-decoration: underline;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .profil-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 15px;
+  }
+
+  .profil-avatar {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .profil-info-item {
+    flex-direction: column;
+  }
+
+  .profil-label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .profil-label::after {
+    display: none;
+  }
+
+  .profil-modal-content {
+    width: 95%;
+    padding: 20px;
+    margin: 10% auto;
+  }
+
+  .profil-form-group {
+    min-width: 100%;
+  }
+
+  #cv-upload-form {
+    flex-direction: column;
+  }
+
+  #cv-upload-form button {
+    width: 100%;
+  }
+}

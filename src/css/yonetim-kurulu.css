@@ -1,0 +1,495 @@
+/* Yönetim Kurulu (Board of Directors) Page Styles */
+
+/* Page Header */
+.board-page-header {
+  background: linear-gradient(135deg, #1b1f3b, #1b1f3b, #a298b7, #9370db);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: #ffffff;
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.board-page-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  animation: rotateBg 20s linear infinite;
+  z-index: 0;
+}
+
+.board-page-header .container {
+  position: relative;
+  z-index: 1;
+}
+
+.board-page-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.board-page-header p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeInUp 2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Board Members Page Section */
+.board-members-page-section {
+  padding: 4rem 2rem;
+  background-color: #f5f5fa;
+  min-height: 60vh;
+}
+
+.board-members-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.board-member-page-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(27, 31, 59, 0.12);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
+  border: 2px solid rgba(147, 112, 219, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.board-member-page-card.h-100 {
+  height: 100%;
+}
+
+.board-member-page-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(147, 112, 219, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.board-member-page-card:hover::before {
+  left: 100%;
+}
+
+.board-member-page-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(27, 31, 59, 0.25);
+  border-color: rgba(147, 112, 219, 0.4);
+}
+
+.board-member-page-card .member-image-wrapper {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.board-member-page-card .member-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #9370db;
+  box-shadow: 0 6px 20px rgba(147, 112, 219, 0.35);
+  transition: all 0.4s ease;
+}
+
+.board-member-page-card:hover .member-image {
+  border-color: #6a0dad;
+  box-shadow: 0 8px 25px rgba(106, 13, 173, 0.5);
+  transform: scale(1.05);
+}
+
+.board-member-page-card .member-image-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9370db, #6a0dad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #9370db;
+  box-shadow: 0 6px 20px rgba(147, 112, 219, 0.35);
+  transition: all 0.4s ease;
+}
+
+.board-member-page-card:hover .member-image-placeholder {
+  border-color: #6a0dad;
+  box-shadow: 0 8px 25px rgba(106, 13, 173, 0.5);
+  transform: scale(1.05);
+}
+
+.board-member-page-card .member-image-placeholder i {
+  font-size: 5rem;
+  color: #ffffff;
+}
+
+.board-member-page-card .member-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.board-member-page-card .member-info.d-flex.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Zone 1: Name (İsim Alanı) - Fixed Height */
+.board-member-page-card .member-name-zone {
+  min-height: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.board-member-page-card .member-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1b1f3b;
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  width: 100%;
+}
+
+.board-member-page-card:hover .member-name {
+  color: #6a0dad;
+}
+
+/* Zone 2: Position (Unvan Alanı) - Fixed Height */
+.board-member-page-card .member-position-zone {
+  min-height: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.board-member-page-card .member-position {
+  font-size: 1.05rem;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  width: 100%;
+}
+
+.board-member-page-card:hover .member-position {
+  color: #555;
+}
+
+.board-member-page-card .member-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.board-member-page-card .member-social.mt-auto {
+  margin-top: auto;
+}
+
+.board-member-page-card .social-link {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.board-member-page-card .social-link::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.3;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.board-member-page-card .social-link:hover::before {
+  transform: scale(1.3);
+}
+
+.board-member-page-card .social-link.linkedin {
+  background-color: #0077b5;
+  color: #ffffff;
+}
+
+.board-member-page-card .social-link.linkedin:hover {
+  background-color: #005885;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 119, 181, 0.5);
+}
+
+.board-member-page-card .social-link.github {
+  background-color: #333;
+  color: #ffffff;
+}
+
+.board-member-page-card .social-link.github:hover {
+  background-color: #000;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 6px 15px rgba(51, 51, 51, 0.5);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #666;
+}
+
+.empty-state i {
+  font-size: 5rem;
+  color: #9370db;
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+
+.empty-state h3 {
+  font-size: 2rem;
+  color: #1b1f3b;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotateBg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFade 0.8s ease forwards;
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .board-members-page-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .board-member-page-card .member-image-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .board-page-header {
+    padding: 4rem 1.5rem;
+  }
+
+  .board-page-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .board-page-header p {
+    font-size: 1.1rem;
+  }
+
+  .board-members-page-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .board-members-page-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+
+  .board-member-page-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .board-member-page-card .member-image-wrapper {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 1.5rem;
+  }
+
+  .board-member-page-card .member-name-zone {
+    min-height: 70px;
+  }
+
+  .board-member-page-card .member-name {
+    font-size: 1.5rem;
+  }
+
+  .board-member-page-card .member-position-zone {
+    min-height: 45px;
+  }
+
+  .board-member-page-card .member-position {
+    font-size: 1rem;
+  }
+
+  .board-member-page-card .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .board-page-header {
+    padding: 3rem 1rem;
+  }
+
+  .board-page-header h2 {
+    font-size: 2rem;
+  }
+
+  .board-page-header p {
+    font-size: 1rem;
+  }
+
+  .board-members-page-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .board-member-page-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .board-member-page-card .member-image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .board-member-page-card .member-name-zone {
+    min-height: 65px;
+  }
+
+  .board-member-page-card .member-name {
+    font-size: 1.3rem;
+  }
+
+  .board-member-page-card .member-position-zone {
+    min-height: 40px;
+  }
+
+  .board-member-page-card .member-position {
+    font-size: 0.95rem;
+  }
+
+  .empty-state i {
+    font-size: 4rem;
+  }
+
+  .empty-state h3 {
+    font-size: 1.5rem;
+  }
+
+  .empty-state p {
+    font-size: 1rem;
+  }
+}
+

@@ -1,0 +1,33 @@
+RewriteEngine On
+
+# URL'den .php uzantısını kaldır
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Dizin listesini devre dışı bırak
+Options -Indexes
+
+# 404 hata sayfasına yönlendir
+ErrorDocument 404 /404.php
+
+# Varsayılan karakter seti
+AddDefaultCharset UTF-8
+
+# MIME türlerini ayarla
+AddType application/x-httpd-php .php
+
+# Güvenlik önlemleri
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# PHP hata mesajlarını gizle
+php_flag display_errors off
+php_value error_reporting 0
+
+# Dosya yükleme limitleri
+php_value upload_max_filesize 10M
+php_value post_max_size 10M

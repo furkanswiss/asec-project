@@ -1,0 +1,717 @@
+/* İlanlar Sayfası CSS - ASEC Kulübü */
+
+/* Ana Container */
+.ilanlar-container {
+  max-width: 1200px;
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+}
+
+/* Sayfa Başlığı */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1c2444; /* Dark grey */
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.page-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background-color: #9370db; /* Purple */
+  border-radius: 2px;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2.5rem 0 3rem;
+  flex-wrap: wrap;
+}
+
+/* Tab Buttons */
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  color: #1c2444;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  user-select: none; /* Prevent text selection on mobile */
+}
+
+.tab-btn i {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+/* Active Tab Button */
+.tab-btn.active {
+  background-color: #6a0dad; /* Dark purple */
+  color: #fff;
+  border-color: #6a0dad;
+  box-shadow: 0 4px 12px rgba(106, 13, 173, 0.3);
+}
+
+.tab-btn.active i {
+  color: #fff;
+}
+
+/* Hover Effect for Inactive Tabs (desktop only) */
+@media (hover: hover) {
+  .tab-btn:not(.active):hover {
+    background-color: #f5f5f5;
+    border-color: #9370db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Active state for mobile touch */
+.tab-btn:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+/* Tab Content Wrapper */
+.tab-content-wrapper {
+  position: relative;
+  min-height: 400px;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Announcements Grid (same as duyurular) */
+.announcements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Announcement Card */
+.announcement-card {
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  padding: 1.8rem;
+  border: 1px solid #9370db;
+  border-radius: 12px;
+}
+
+/* Category-specific styling */
+.announcement-card[data-category="staj"] {
+  border-color: #3498db; /* Blue for internships */
+}
+
+.announcement-card[data-category="burs"] {
+  border-color: #f39c12; /* Orange/Gold for scholarships */
+}
+
+.announcement-card[data-category="bireysel"] {
+  border-color: #9b59b6; /* Purple for individual */
+}
+
+/* Badge colors by category */
+.badge[data-category="staj"] {
+  background: linear-gradient(135deg, #3498db, #5dade2);
+}
+
+.badge[data-category="burs"] {
+  background: linear-gradient(135deg, #f39c12, #f7dc6f);
+}
+
+.badge[data-category="bireysel"] {
+  background: linear-gradient(135deg, #9b59b6, #bb8fce);
+}
+
+.badge[data-category="bilgilendirme"] {
+  background: linear-gradient(135deg, #16a085, #1abc9c);
+}
+
+.announcement-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Announcement Header */
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+/* Delete Button for Individual Ads - Elegant Style */
+.btn-delete-ad {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+  color: #e74c3c;
+  border: 2px solid rgba(231, 76, 60, 0.2);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-delete-ad::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.btn-delete-ad:hover {
+  border-color: #e74c3c;
+  box-shadow: 0 4px 16px rgba(231, 76, 60, 0.3);
+  transform: translateY(-2px) scale(1.05);
+  color: #fff;
+}
+
+.btn-delete-ad:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-delete-ad:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.2);
+}
+
+.btn-delete-ad i {
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.btn-delete-ad:hover i {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, #6a0dad, #9370db);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(106, 13, 173, 0.25);
+}
+
+/* Date */
+.date {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+/* Announcement Content */
+.announcement-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1b1f3b;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.announcement-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* İlan Meta Information */
+.ilan-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.ilan-meta i {
+  color: #9370db;
+  font-size: 0.9rem;
+}
+
+.ilan-deadline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #e74c3c;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #fee;
+  border-left: 3px solid #e74c3c;
+  border-radius: 4px;
+}
+
+.ilan-deadline i {
+  color: #e74c3c;
+}
+
+/* Read More Button */
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  background-color: #1b1f3b;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  margin-top: auto;
+  box-shadow: 0 4px 10px rgba(27, 31, 59, 0.2);
+  text-decoration: none;
+}
+
+.read-more i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #9370db;
+  box-shadow: 0 6px 15px rgba(106, 13, 173, 0.3);
+}
+
+.read-more:hover i {
+  transform: translateX(5px);
+}
+
+/* No Announcements State */
+.no-announcements {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.no-announcements i {
+  font-size: 4rem;
+  color: #9370db;
+  margin-bottom: 1.5rem;
+}
+
+.no-announcements h3 {
+  font-size: 1.8rem;
+  color: #1b1f3b;
+  margin-bottom: 1rem;
+}
+
+.no-announcements p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .announcements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tab-navigation {
+    gap: 0.75rem;
+  }
+
+  .tab-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet and Mobile */
+@media (max-width: 768px) {
+  .ilanlar-container {
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .page-title::after {
+    width: 80px;
+    height: 2px;
+  }
+
+  .announcements-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Tab Navigation - Horizontal scroll on mobile for better UX */
+  .tab-navigation {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #9370db transparent;
+    gap: 0.75rem;
+    margin: 1.5rem -1rem 2rem;
+    padding: 0 1rem 0.5rem;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  /* Hide scrollbar for cleaner look but keep functionality */
+  .tab-navigation::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .tab-navigation::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .tab-navigation::-webkit-scrollbar-thumb {
+    background: #9370db;
+    border-radius: 2px;
+  }
+
+  .tab-btn {
+    min-width: 160px;
+    width: auto;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    /* Better touch target */
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+
+  .tab-btn i {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+  }
+
+  .tab-content-wrapper {
+    min-height: 300px;
+  }
+
+  .announcement-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .announcement-card h3 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+
+  .announcement-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .announcement-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.875rem;
+  }
+
+  .date {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .read-more {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
+    min-height: 44px; /* Better touch target */
+  }
+
+  .no-announcements {
+    padding: 3rem 1.5rem;
+  }
+
+  .no-announcements i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .no-announcements h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .no-announcements p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .ilanlar-container {
+    margin: 1.5rem auto 3rem;
+    padding: 0 0.75rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .page-title::after {
+    width: 60px;
+    height: 2px;
+  }
+
+  /* Tab Navigation - Even more compact */
+  .tab-navigation {
+    margin: 1.25rem -0.75rem 1.5rem;
+    padding: 0 0.75rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    min-width: 140px;
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+
+  .tab-btn i {
+    font-size: 1rem;
+    margin-right: 0.4rem;
+  }
+
+  .tab-btn span {
+    font-size: 0.875rem;
+  }
+
+  .announcements-grid {
+    gap: 1.25rem;
+  }
+
+  .announcement-card {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .announcement-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .announcement-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .read-more {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  .no-announcements {
+    padding: 2.5rem 1.25rem;
+    border-radius: 10px;
+  }
+
+  .no-announcements i {
+    font-size: 2.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .no-announcements h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .no-announcements p {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+    line-height: 1.5;
+  }
+}
+
+/* Very Small Mobile Devices (iPhone SE, etc.) */
+@media (max-width: 360px) {
+  .ilanlar-container {
+    padding: 0 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .tab-navigation {
+    margin: 1rem -0.5rem 1.25rem;
+    padding: 0 0.5rem 0.5rem;
+  }
+
+  .tab-btn {
+    min-width: 120px;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.8rem;
+  }
+
+  .tab-btn i {
+    font-size: 0.95rem;
+    margin-right: 0.3rem;
+  }
+
+  .tab-btn span {
+    font-size: 0.8rem;
+  }
+
+  .announcement-card {
+    padding: 1rem;
+  }
+
+  .announcement-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .announcement-card p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .ilanlar-container {
+    margin: 1.5rem auto 3rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tab-navigation {
+    margin: 1.25rem -1rem 1.5rem;
+    padding: 0 1rem 0.5rem;
+  }
+
+  .tab-btn {
+    min-width: 150px;
+    padding: 0.875rem 1.1rem;
+  }
+}
+
+/* Post Ad Button - Individual Listings */
+.btn-post-ad {
+  background-color: #6a0dad;
+  color: #fff;
+  padding: 0.875rem 1.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-post-ad:hover {
+  background-color: #6a0dad;
+  color: #fff;
+}
+

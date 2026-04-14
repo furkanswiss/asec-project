@@ -1,0 +1,1016 @@
+/* Index Sayfası CSS */
+
+/* Ana Container */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Bölümü */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #1c2444 0%, #532673 100%);
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+/* Matrix Animasyonu için Stiller */
+.matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="20" height="20" fill="none" stroke="#9370db" stroke-width="1"/></svg>');
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    #664e97 0%,
+    rgba(27, 31, 59, 0.6) 70%
+  );
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ASEC Animasyonu */
+.animated-asec-container {
+  margin-bottom: 3rem;
+  perspective: 1000px;
+}
+
+.animated-asec {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Hero İçerik */
+.hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px #9370db;
+  animation: text-focus-in 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  color: #e6e6fa;
+  text-shadow: 0 0 5px #9370db;
+  animation: fade-in 2s ease-out both;
+  animation-delay: 0.5s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero İçerik */
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #e6e6fa;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 0;
+  border: 2px solid transparent; /* border'ı degrade ile dolduracağız */
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 400% 400%;
+  animation: glowing-border 20s linear infinite, fadeIn 1.2s ease forwards;
+  opacity: 0; /* başlangıçta görünmez */
+  transform: translateY(10px); /* hafif aşağıda başlar */
+}
+
+/* Hover efektler korunuyor */
+.btn-primary {
+  color: #ffffff;
+  background-color: #9370db;
+  border: 3px solid #1c2444;
+}
+
+.btn-primary:hover {
+  background-color: #1c2444;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
+  border: 3px solid #9370db;
+}
+
+.btn-secondary {
+  color: #ffffff;
+  background-color: #1c2444;
+  border: 3px solid #9370db;
+}
+
+.btn-secondary:hover {
+  background-color: #9370db;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(147, 112, 219, 0.4);
+}
+
+@keyframes glowing-border {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  50% {
+    background-position: 0 0, 400% 0;
+  }
+  100% {
+    background-position: 0 0, 0 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Neler sunuyoruz? */
+.features {
+  position: relative;
+  padding: 4rem 2rem; /* Üst-alt boşluklar arttırıldı */
+  background-color: #a298b7; /* Kartlarla uyumlu koyu arka plan */
+  margin: auto; /* Üst ve alt boşluklar */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Neler Sunuyoruz? başlığı */
+.features h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff; /* Kartlarla uyumlu beyaz renk */
+  margin-bottom: 3rem; /* Alt boşluk arttırıldı */
+  position: relative;
+}
+
+/* Alt çizgi */
+.features h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background-color: #1c2444; /* Kutularla uyumlu mor ton */
+  margin: 8px auto 0 auto;
+}
+
+:root {
+  --card-gradient: linear-gradient(270deg, #6a0dad, #9370db, #6a0dad);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* yarı saydam ince border */
+  background: rgba(255, 255, 255, 0.493); /* saydam beyaz */
+  backdrop-filter: blur(10px); /* cam efekti */
+  -webkit-backdrop-filter: blur(10px); /* Safari desteği */
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease,
+    backdrop-filter 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* hafif gölge */
+}
+
+.feature-card:hover {
+  transform: translateY(-10px); /* hafif yukarı kayma */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); /* hover gölgesi daha belirgin */
+  backdrop-filter: blur(12px); /* hover'da cam efekti biraz daha belirgin */
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.feature-card lottie-player {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+@keyframes rainbowMove {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+.card-content h3 {
+  margin: 1rem 0;
+  color: #1b1f3b;
+  transition: color 0.3s ease;
+}
+
+.card-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Kart arka planı da hafif rainbow gradient ile animasyonlu */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet,
+    red
+  );
+  background-size: 300% 100%;
+  opacity: 0.05;
+  filter: blur(10px);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  animation: rainbowMove 4s linear infinite;
+}
+
+.feature-card:hover::before {
+  opacity: 0.2;
+}
+
+/* Yaklaşan Etkinlikler Bölümü */
+.upcoming-events::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 31, 59, 0.02) 0%,
+    rgba(106, 13, 173, 0.02) 100%
+  );
+  z-index: 1;
+}
+
+.upcoming-events h2 {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #1b1f3b; /* Ana Renk - Lacivert */
+  margin-bottom: 4rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  margin-top: 50px;
+}
+
+.upcoming-events h2::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 1px;
+  background-color: #1c2444;
+  border-radius: 2px;
+}
+
+.events-slider {
+  max-width: 1200px;
+  margin: 0 auto; /* sayfaya ortala */
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* PC’de 3 kart */
+  justify-content: center; /* satırdaki kartları ortala */
+  gap: 2rem; /* kartlar arası boşluk */
+  z-index: 2;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .events-slider {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 kart */
+  }
+}
+
+@media (max-width: 768px) {
+  .events-slider {
+    grid-template-columns: 1fr; /* mobil: 1 kart */
+  }
+}
+
+.no-events {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  border: 1px solid rgba(106, 13, 173, 0.1);
+  color: #1b1f3b;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-events lottie-player {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+.no-events p {
+  margin-top: 0.5rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.view-all-events {
+  text-align: center;
+  margin-top: 3rem;
+  z-index: 2;
+  position: relative;
+}
+
+.view-all-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: #ebe4fd;
+  color: #666;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.2);
+  margin-bottom: 50px;
+  border: 1px solid #d6cee9; /* ince gri çizgi */
+}
+
+.view-all-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 5px #1c2444;
+  color: #ebe4fd;
+  background: #9673dc;
+}
+
+.event-card {
+  margin: 0 auto;
+  padding: 2em;
+  width: 400px;
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  padding-top: 60px;
+  overflow: visible; /* border efektinin taşmasını sağlıyoruz */
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.event-card::after,
+.event-card::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    #a07ddd,
+    #83c7e1,
+    #5861aa,
+    #e59fc8,
+    #8a80e9
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+.event-card::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.event-date {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: 1px solid #1b1f3b; /* Mor */
+  border-radius: 30px;
+  background: #ebe4fd; /* Mor - Menekşe Gradient */
+  color: black;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.2);
+  z-index: 5; /* Yüksek z-index değeri */
+  line-height: 15px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.event-card h3 {
+  margin: 1rem 0;
+  color: #1b1f3b; /* Ana Renk - Lacivert */
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.event-card p {
+  color: #666;
+  line-height: 1.8;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  flex-grow: 1; /* Paragrafı esnek yap, böylece içerik kısa olsa bile butonlar aynı hizada olur */
+  margin-bottom: 1.5rem;
+}
+/* CSS */
+.event-button {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.event-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.event-button:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+/* Üyelik Bölümü */
+.membership {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #1b1f3b 100%);
+  color: #ffffff;
+  text-align: center;
+}
+
+.membership h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.membership p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #e6e6fa; /* Açık Mor */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 992px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .letter {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .letter {
+    font-size: 2.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .events-slider {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .feature-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-container {
+    padding: 0 1rem;
+  }
+
+  .letter {
+    font-size: 2rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------------------------
+   HERO ASEC ANIMASYONU
+   (ekle: css/index.css sonunda)
+   --------------------------- */
+:root {
+  --gap: 6ch;
+  --dur-in: 1s;
+  --dur-apart: 0.9s;
+  --dur-type: 1.6s;
+  --easing: cubic-bezier(0.22, 0.8, 0.22, 1);
+}
+
+/* container - hero içindeki alanı kaplasın, alt içerikle çakışmasın */
+.hero-asec-intro {
+  position: relative;
+  min-height: clamp(
+    150px,
+    28vh,
+    360px
+  ); /* animasyon yüksekliği - gerektiğinde ayarla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+/* iç içerik (yazının boyutu hero ile orantılı olsun) */
+.hero-asec-intro .intro {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  font-size: clamp(40px, 8vw, 120px);
+  line-height: 1;
+  font-weight: 900;
+  color: #fff;
+}
+
+/* Süslü parantezler (başlangıç sağ/sol dışarıda) */
+.hero-asec-intro .brace {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  color: #dbd5e9;
+  text-shadow: 0 0 5px rgba(148, 70, 204, 0.9),
+    0 0 30px rgba(147, 112, 219, 0.5);
+  font-weight: 900;
+  font-size: 1em; /* 1em => intro font-size */
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.hero-asec-intro .brace.left-curly {
+  --x: 50vw;
+  transform: translate(calc(-50% + var(--x)), -50%);
+}
+.hero-asec-intro .brace.right-curly {
+  --x: -50vw;
+  transform: translate(calc(-50% + var(--x)), -50%);
+}
+
+/* girişte parantezler içeri girer */
+.hero-asec-intro.in .brace {
+  transition: transform var(--dur-in) var(--easing),
+    opacity var(--dur-in) var(--easing);
+  opacity: 1;
+}
+.hero-asec-intro.in .brace.left-curly {
+  --x: -0.7ch;
+}
+.hero-asec-intro.in .brace.right-curly {
+  --x: 0.7ch;
+}
+
+/* ayrışma (parantezler aralanır) */
+.hero-asec-intro.apart .brace {
+  transition: transform var(--dur-apart) var(--easing);
+}
+.hero-asec-intro.apart .brace.left-curly {
+  --x: calc(-0.7ch - var(--gap) / 2);
+}
+.hero-asec-intro.apart .brace.right-curly {
+  --x: calc(0.7ch + var(--gap) / 2);
+}
+
+/* merkez (typing ve final buranın içinde) */
+.hero-asec-intro .center {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: calc(4ch + var(--gap)); /* aynı gap ile hizalama */
+  height: 1em;
+  font-size: 1em;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+/* TYPING (orta nokta sabit, yazma burdan genişler) */
+.hero-asec-intro .typing {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  font-weight: 800;
+  letter-spacing: 0.05em; /* harfler arası boşluğu biraz artır */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0ch; /* animasyonla artacak */
+  opacity: 0;
+  border-right: 0.1em solid #dbd5e9; /* caret */
+  text-align: center;
+  font-size: 1em;
+  will-change: width, opacity;
+  box-sizing: content-box; /* caret düzgün yerleşsin */
+}
+
+.hero-asec-intro .typing.go {
+  opacity: 1;
+  animation: typing var(--dur-type) steps(4, end) forwards,
+    caret 600ms steps(1, end) infinite;
+  border-right-color: #dbd5e9;
+}
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 4ch;
+  }
+} /* "ASEC" = 4ch */
+@keyframes caret {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+/* FINAL GLITCH + GLOW (typing sonrası görünür) */
+.hero-asec-intro .animated-asec {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.3ch;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.4s ease;
+  animation: float 6s ease-in-out infinite;
+  font-size: 1em;
+  pointer-events: none;
+}
+.hero-asec-intro .animated-asec.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) rotateY(0deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) rotateY(8deg);
+  }
+}
+
+.hero-asec-intro .letter {
+  position: relative;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(106, 13, 173, 0.9),
+    0 0 30px rgba(147, 112, 219, 0.5);
+  animation: glow 3s infinite alternate;
+}
+.hero-asec-intro .letter::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #9370db;
+  filter: blur(8px);
+  opacity: 0;
+  animation: glitch-effect 4s infinite alternate;
+}
+.hero-asec-intro .letter::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #b39ddb;
+  filter: blur(4px);
+  opacity: 0;
+  animation: glitch-effect 3s 0.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(106, 13, 173, 0.8),
+      0 0 20px rgba(106, 13, 173, 0.4);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(106, 13, 173, 1),
+      0 0 40px rgba(106, 13, 173, 0.6), 0 0 60px rgba(106, 13, 173, 0.4);
+  }
+}
+@keyframes glitch-effect {
+  0%,
+  5%,
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  1% {
+    opacity: 0.8;
+    transform: translateX(3px);
+  }
+  2% {
+    opacity: 0.4;
+    transform: translateX(-3px);
+  }
+  3% {
+    opacity: 0.6;
+    transform: translateX(0);
+  }
+}
+
+/* küçük ekranlarda sığdırma */
+@media (max-width: 600px) {
+  .hero-asec-intro {
+    min-height: 120px;
+  }
+  .hero-asec-intro .intro {
+    font-size: clamp(28px, 14vw, 64px);
+  }
+}
+
+/* Mobil ve tablet için responsive ayarlar */
+@media (max-width: 1200px) {
+  .events-slider {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .event-card {
+    width: 100%;
+    padding: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-slider {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .event-card {
+    width: 100%;
+    padding: 1.2em;
+  }
+
+  .event-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .event-card p {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+
+  .event-date {
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .event-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upcoming-events h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .event-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .event-card p {
+    font-size: 0.9rem;
+  }
+
+  .event-date {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .event-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.7rem;
+  }
+}
